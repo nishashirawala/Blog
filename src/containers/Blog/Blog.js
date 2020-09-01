@@ -4,7 +4,8 @@ import Post from '../../components/Post/Post';
 import FullPost from '../../components/FullPost/FullPost';
 import NewPost from '../../components/NewPost/NewPost';
 import './Blog.css';
-import axios from "axios";
+// import axios from "axios";
+import axiosInstance from "../../axios";
 
 class Blog extends Component {
 
@@ -14,7 +15,7 @@ class Blog extends Component {
         error: false
     };
     componentDidMount() {
-        axios.get("/posts")
+        axiosInstance.get("/posts")
             .then(response => {
                 console.log(response);
                 const posts = response.data.slice(0,4);
